@@ -50,7 +50,7 @@ const arr: DataType[] = [
     action: (
       <Link
         className="px-4 py-2 text-blue-700 bg-blue-300 rounded-full"
-        to="/>admin/transaction/sajknaskd"
+        to="/admin/transaction/sajknaskd"
       >
         Manage
       </Link>

@@ -61,8 +61,8 @@ const TransactionManagement = () => {
     <div>
       <div className=" flex bg-[rgb(247,247,247)]">
         <AdminSidebar />
-        <main className="flex flex-row items-center justify-center gap-8 p-16 m-auto ">
-          <section className="overflow-y-auto w-full h-[85vh] max-w-[600px] shadow-[0px_5px_5px_rgba(0,0,0,0.216)] bg-white p-20 relative flex flex-col gap-4 rounded-md">
+        <main className="flex flex-row items-center justify-center gap-8 p-8 m-auto ">
+          <section className="overflow-y-auto w-full h-[85vh] max-w-[1200px] shadow-[0px_5px_5px_rgba(0,0,0,0.216)] bg-white p-8 relative flex flex-col gap-4 rounded-md">
             <h2 className="uppercase text-xl font-semibold tracking-[2px] text-center">
               Order Items
             </h2>
@@ -78,32 +78,47 @@ const TransactionManagement = () => {
             ))}
           </section>
           <article className="h-[85vh] p-8 pl-4 w-full max-w-md bg-white rounded-md shadow-[5px_5px_10px_rgba(0,0,0,0.216)]">
-            <h1>Order Info</h1>
-            <h5>User Info</h5>
-            <p>Name: {name}</p>
-            <p>Address: {`${address}, ${city}, ${country}, ${pinCode}`}</p>
-            <h5>Amount Info</h5>
-            <p>Subtotal: {subtotal}</p>
-            <p>Shipping Charges: {shippingCharges}</p>
-            <p>Tax: {tax}</p>
-            <p>Discount: {discount}</p>
-            <p>Total: {total}</p>
-            <h5>Status Info</h5>
-            <p>
-              Status:
+            <h1 className="text-center uppercase text-2xl font-semibold tracking-[2px]">
+              Order Info
+            </h1>
+            <h5 className="mt-8 mb-0 ml-2 mr-0 text-lg font-bold ">
+              User Info
+            </h5>
+            <p className="m-2">Name: {name}</p>
+            <p className="m-2">
+              Address: {`${address}, ${city}, ${country}, ${pinCode}`}
+            </p>
+            <h5 className="mt-8 mb-0 ml-2 mr-0 text-lg font-bold ">
+              Amount Info
+            </h5>
+            <p className="m-2">Subtotal: {subtotal}</p>
+            <p className="m-2">Shipping Charges: {shippingCharges}</p>
+            <p className="m-2">Tax: {tax}</p>
+            <p className="m-2">Discount: {discount}</p>
+            <p className="m-2">Total: {total}</p>
+            <h5 className="mt-8 mb-0 ml-2 mr-0 text-lg font-bold ">
+              Status Info
+            </h5>
+            <p className="m-2">
+              Status:{" "}
               <span
                 className={
                   status === "Delivered"
-                    ? "bg-purple-600"
+                    ? "text-purple-600 font-semibold"
                     : status === "Shipped"
-                    ? "bg-green-600"
-                    : "bg-red-600"
+                    ? "text-green-600 font-semibold"
+                    : "text-red-600 font-semibold"
                 }
               >
                 {status}
               </span>
             </p>
-            <button onClick={updateHandler}>Process Status</button>
+            <button
+              className="p-4 border-none bg-[rgb(5,107,224)] mt-8 hover:opacity-80 rounded-md text-white w-full text-lg cursor-pointer"
+              onClick={updateHandler}
+            >
+              Process Status
+            </button>
           </article>
         </main>
       </div>
@@ -112,13 +127,15 @@ const TransactionManagement = () => {
 };
 
 const ProductCard = ({ name, photo, price, quantity, _id }: OrderItemType) => (
-  <div className="flex flex-row items-center gap-4 ">
+  <div className="flex flex-row items-center w-full gap-4 ">
     <img
       className="object-cover w-16 h-16 rounded-md "
       src={photo}
       alt={name}
     />
-    <Link to={`/product/${_id}`}>{name}</Link>
+    <Link className="" to={`/product/${_id}`}>
+      {name}
+    </Link>
     <span className="ml-auto ">
       ${price} X {quantity} = {quantity * price}
     </span>

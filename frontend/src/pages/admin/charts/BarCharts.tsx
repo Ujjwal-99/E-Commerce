@@ -32,7 +32,7 @@ const BarCharts = () => {
             bgColor_2=""
             horizontal={true}
           />
-          <h2 className="mx-0 my-8 text-2xl font-semibold text-center uppercase ">
+          <h2 className="mx-0 my-8 text-2xl font-semibold text-center uppercase trac ">
             Orders throughout the Year
           </h2>
         </section>

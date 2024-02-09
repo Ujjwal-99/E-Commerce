@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 // importing routes
 const user_js_1 = __importDefault(require("./routes/user.js"));
 const features_js_1 = require("./utils/features.js");
+const error_js_1 = require("./middlewares/error.js");
 const port = 4000;
 (0, features_js_1.connectDB)();
 const app = (0, express_1.default)();
@@ -16,7 +17,7 @@ app.get("/", (req, res) => {
 });
 // using Routes
 app.use("/api/v1/user", user_js_1.default);
-app.use((error, req, res, next) => { });
+app.use(error_js_1.errorMiddleware);
 app.listen(port, () => {
     console.log(`Server is working on http://localhost:${port}`);
 });

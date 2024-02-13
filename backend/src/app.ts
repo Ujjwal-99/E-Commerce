@@ -2,6 +2,8 @@ import express from "express";
 
 // importing routes
 import userRoute from "./routes/user.js";
+import productRoute from "./routes/products.js";
+
 import { connectDB } from "./utils/features.js";
 import { errorMiddleware } from "./middlewares/error.js";
 
@@ -19,6 +21,7 @@ app.get("/", (req, res) => {
 
 // using Routes
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/product", productRoute);
 
 app.use(errorMiddleware);
 

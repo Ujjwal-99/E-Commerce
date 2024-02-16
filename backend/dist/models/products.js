@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const schema = new mongoose_1.default.Schema({
-    _id: {
-        type: String,
-        required: [true, "Please Enter ID"],
-    },
     name: {
         type: String,
         required: [true, "Please Enter Name"],
@@ -29,6 +25,7 @@ const schema = new mongoose_1.default.Schema({
     category: {
         type: String,
         required: [true, "Please Enter Category"],
+        trim: true,
     },
 }, {
     timestamps: true,

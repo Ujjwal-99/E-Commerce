@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 
 const schema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required: [true, "Please Enter ID"],
-    },
     name: {
       type: String,
       required: [true, "Please Enter Name"],
@@ -25,6 +21,7 @@ const schema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, "Please Enter Category"],
+      trim: true,
     },
   },
   {
